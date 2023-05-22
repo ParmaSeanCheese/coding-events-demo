@@ -33,7 +33,9 @@ public class Event {
     @Positive (message = "Must be a number larger than 0")
     private int attendees;
 
-    public Event(String name, String description, String contactEmail, String location, Boolean registrationRequired, int attendees) {
+    private EventType type;
+
+    public Event(String name, String description, String contactEmail, String location, Boolean registrationRequired, int attendees, EventType type) {
         this();
         this.name = name;
         this.description = description;
@@ -41,6 +43,7 @@ public class Event {
         this.location = location;
         this.registrationRequired = registrationRequired;
         this.attendees = attendees;
+        this.type = type;
     }
 
     public Event() {
@@ -94,6 +97,14 @@ public class Event {
 
     public void setAttendees(int attendees) {
         this.attendees = attendees;
+    }
+
+    public EventType getType() {
+        return type;
+    }
+
+    public void setType(EventType type) {
+        this.type = type;
     }
 
     public int getId() {

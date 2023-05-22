@@ -31,8 +31,8 @@
         <p class="error" th:errors="${event.location}"></p>
     </div>
     <div class="form-group">
-        <label>Registration Required (True/False)
-            <input th:field="${event.registrationRequired}" class="form-control">
+        <label>Registration Required
+            <input type="checkbox" th:field="${event.registrationRequired}" class="form-control">
         </label>
         <p class="error" th:errors="${event.registrationRequired}"></p>
     </div>
@@ -41,6 +41,16 @@
             <input th:field="${event.attendees}" class="form-control">
         </label>
         <p class="error" th:errors="${event.attendees}"></p>
+    </div>
+    <div class="form-group">
+        <label>Type
+        <select th:field="${event.type}">
+            <option th:each="type : ${types}"
+                    th:value="${type}"
+                    th:text="${type.displayName}"
+            ></option>
+        </select>
+        </label>
     </div>
     <div class="form-group">
         <input type="submit" value="Create" class="btn btn-success">
